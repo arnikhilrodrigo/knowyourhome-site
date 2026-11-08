@@ -389,7 +389,7 @@ th{font-size:9.5px;letter-spacing:.08em}}
 .kv-lsticky{display:none;font-family:var(--kv-hand);font-weight:600;font-size:25px;line-height:1.12;color:var(--kv-ink)}
 @media (min-width:760px){.kv-lettersec{padding-top:110px;padding-bottom:110px}
 .kv-letter{padding:58px 62px 46px;transform:rotate(-.35deg)}}
-@media (min-width:1180px){.kv-lsticky{display:block;position:absolute;right:-168px;top:170px;width:190px;padding:24px 18px 26px;background:var(--kv-note-y);transform:rotate(3deg);box-shadow:0 18px 26px -14px rgba(20,22,26,.42)}}
+@media (min-width:1180px){.kv-lsticky{display:block;position:relative;width:100%;max-width:210px;padding:24px 18px 26px;background:var(--kv-note-y);transform:rotate(3deg);box-shadow:0 18px 26px -14px rgba(20,22,26,.42)}}
 .kv-promise{text-align:center;padding:72px 0 76px}
 .kv-promise h2{font-family:var(--kv-display);font-weight:400;font-size:clamp(34px,7.6vw,60px);line-height:1.05;letter-spacing:-.02em;color:var(--kv-ink);max-width:800px;margin:0 auto}
 .kv-promise em{color:var(--kv-red)}
@@ -449,6 +449,35 @@ th{font-size:9.5px;letter-spacing:.08em}}
 .su-back{display:block;margin:12px auto 0;font:inherit;font-size:13px;font-weight:700;color:var(--grey);background:none;border:none;cursor:pointer}
 .su-back:hover{color:#14161A}
 @media print{#signup{display:none!important}}
+.kv-vidblock{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;margin:34px auto 44px}
+.kv-vidnote{font-family:var(--kv-hand);font-weight:600;font-size:27px;line-height:1;color:var(--kv-red);transform:rotate(-2deg);margin-bottom:12px}
+.kv-vidframe{position:relative;width:min(330px,80vw);aspect-ratio:9/16;border-radius:24px;overflow:hidden;background:#14161A;box-shadow:0 34px 60px -28px rgba(20,22,26,.6),0 0 0 6px #fff,0 0 0 7px #E6E2DA}
+.kv-vidframe video{display:block;width:100%;height:100%;object-fit:cover}
+.kv-vidplay{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;padding:0;border:none;border-radius:50%;background:var(--kv-red);color:#fff;cursor:pointer;display:grid;place-items:center;box-shadow:0 14px 30px -8px rgba(20,22,26,.6);transition:transform .2s}
+.kv-vidplay:hover{transform:scale(1.08)}
+.kv-vidplay:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.kv-vidplay svg{width:38px;height:38px;fill:currentColor}
+.kv-vidplay[hidden]{display:none}
+.kv-print{position:relative;margin:0;padding:8px 8px 0;background:#fff;box-shadow:0 18px 30px -18px rgba(20,22,26,.5)}
+.kv-printtape{position:absolute;top:-9px;left:50%;width:62px;height:18px;margin-left:-31px;transform:rotate(-2deg);background:rgba(248,223,134,.85)}
+.kv-print img{display:block;width:100%;height:auto}
+.kv-print figcaption{font-family:var(--kv-hand);font-weight:600;font-size:20px;line-height:1.1;color:var(--kv-ink);text-align:center;padding:9px 3px 11px}
+.kv-inpair{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;margin:26px 0 30px}
+.kv-inpair .kv-print:first-child{transform:rotate(-1.3deg)}
+.kv-inpair .kv-print:last-child{transform:rotate(1.1deg)}
+.kv-rail{display:none}
+@media (min-width:1180px){.kv-lwrap{max-width:none;width:min(1240px,calc(100cqw - 48px));margin-inline:calc(50% - min(620px,calc(50cqw - 24px)));display:grid;grid-template-columns:minmax(0,1fr) minmax(0,720px) minmax(0,1fr);gap:30px}
+.kv-rail{display:flex;flex-direction:column;justify-content:space-around;gap:34px;padding:30px 0}
+.kv-rail .kv-print{width:100%;max-width:230px}
+.kv-rail-l{align-items:flex-end}
+.kv-rail .kv-print figcaption{font-size:22px}
+.kv-rail-l .kv-print:nth-child(1){transform:rotate(-2.4deg)}
+.kv-rail-l .kv-print:nth-child(2){transform:rotate(1.6deg)}
+.kv-rail-l .kv-print:nth-child(3){transform:rotate(-1.5deg)}
+.kv-rail-r .kv-print:nth-child(1){transform:rotate(2.2deg)}
+.kv-rail-r .kv-print:nth-child(3){transform:rotate(-1.8deg)}
+.kv-rail-r .kv-print:nth-child(4){transform:rotate(1.6deg)}
+.kv-inpair{display:none}}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @keyframes pop{0%{transform:scale(.92);background:var(--pink)}60%{transform:scale(1.02)}100%{transform:none}}
 @keyframes sh{20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
@@ -528,6 +557,15 @@ th{font-size:9.5px;letter-spacing:.08em}}
         </div>
         <p class="kv-fine">Free · About 10 minutes · Home Insight Report by email</p>
         <p class="kv-fine kv-device">💻 Best experienced on a laptop or desktop.</p>
+      </div>
+
+      
+      <div class="kv-vidblock">
+        <span class="kv-vidnote">a minute and a half from me ↓</span>
+        <div class="kv-vidframe">
+          <video id="kvVideo" src="media/intro.mp4" poster="media/intro-poster.jpg" playsinline preload="none"></video>
+          <button class="kv-vidplay" id="kvVidPlay" type="button" aria-label="Play Nikhil's introduction video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button>
+        </div>
       </div>
 
       
@@ -672,6 +710,11 @@ th{font-size:9.5px;letter-spacing:.08em}}
     
     <section class="kv-lettersec" id="ix-why">
       <div class="kv-lwrap pop">
+        <div class="kv-rail kv-rail-l">
+          <figure class="kv-print"><span class="kv-printtape"></span><img src="media/letter/sketching.jpg" alt="Nikhil sketching at his desk" width="480" height="853" loading="lazy"><figcaption>Every home starts as a bad sketch. Ask me how I know.</figcaption></figure>
+          <figure class="kv-print"><span class="kv-printtape"></span><img src="media/letter/pocket-plans.jpg" alt="Nikhil reading a drawing" width="675" height="900" loading="lazy"><figcaption>A 30×40. I've read novels with less drama.</figcaption></figure>
+          <figure class="kv-print"><span class="kv-printtape"></span><img src="media/letter/me.jpg" alt="Nikhil in a blue shirt and sunglasses" width="480" height="853" loading="lazy"><figcaption>Hey, it's me. Yes, I wrote all that.</figcaption></figure>
+        </div>
         <div class="kv-lholder">
           <article class="kv-letter">
             <span class="kv-ltape"></span>
@@ -682,13 +725,16 @@ th{font-size:9.5px;letter-spacing:.08em}}
             <div class="kv-lbody">
               <p class="kv-lfirst">Let me start with a confession: most people who walk into our studio aren’t really asking for a house. They’re asking a question they don’t know how to say out loud. <em>Is this enough? Can my life fit here?</em></p>
               <p>I’ve heard it in a hundred ways. A young couple holding a printout of a 1,200 sq ft plot. A son who wants his parents to have a ground-floor bedroom. A working woman who just wants one window where the morning light falls on her desk. They come with a plot size and a budget and, underneath both, a quiet worry that small means compromise.</p>
+              <div class="kv-inpair"><figure class="kv-print"><span class="kv-printtape"></span><img src="media/letter/sketching.jpg" alt="Nikhil sketching at his desk" width="480" height="853" loading="lazy"><figcaption>Every home starts as a bad sketch. Ask me how I know.</figcaption></figure><figure class="kv-print"><span class="kv-printtape"></span><img src="media/letter/discussions.jpg" alt="Nikhil going through drawings with a group at a site" width="675" height="900" loading="lazy"><figcaption>One drawing. Nine opinions.</figcaption></figure></div>
               <p>I don’t believe that. I never have. A 1,000 sq ft plot isn’t a smaller dream. It’s a dream that needs more thought. That’s why we started Pocket Home.</p>
               <p>But something kept bothering me. I’ve watched doctors, engineers and business owners, careful people who research every purchase, begin the biggest build of their lives with no brief at all. A contractor quotes per square foot, someone shows them pretty elevations, and nobody stops to ask: How do you actually live? Who wakes up first? Will your parents move in someday? Most families only find those answers halfway through construction, when changes are expensive and the stress is real.</p>
               <p>I often tell clients that a house is like a t-shirt. You don’t pick the colour first and hope it fits. You start with the size: your plot and your life.</p>
+              <div class="kv-inpair"><figure class="kv-print"><span class="kv-printtape"></span><img src="media/letter/pocket-plans.jpg" alt="Nikhil reading a drawing" width="675" height="900" loading="lazy"><figcaption>A 30×40. I've read novels with less drama.</figcaption></figure><figure class="kv-print"><span class="kv-printtape"></span><img src="media/letter/site-office.jpg" alt="Drawings spread out on a scooter at a site" width="405" height="900" loading="lazy"><figcaption>Site office. Two wheels. Zero rent.</figcaption></figure></div>
               <p class="kv-lpull">So we built Know Your Home.</p>
               <p>It’s the first conversation I wish every family could have before they spend a single rupee. You tell us about your plot and what you want in it, floor by floor. We give you a clear brief, an honest cost range, and a starting point you can actually hold. Brief, then cost, then design, then build. In that order, the way it should be.</p>
               <p>It isn’t meant to replace your architect. It’s meant to make sure that when you sit across from one, you already know your home a little better than you did yesterday.</p>
               <p>Because a home isn’t concrete and steel. It’s the corner where your kid does homework. The balcony where you drink your evening chai. On a small plot, every one of those moments has to be designed on purpose.</p>
+              <div class="kv-inpair"><figure class="kv-print"><span class="kv-printtape"></span><img src="media/letter/families.jpg" alt="A family with Nikhil in a finished room" width="480" height="640" loading="lazy"><figcaption>Happy family. Chairs not in the package.</figcaption></figure><figure class="kv-print"><span class="kv-printtape"></span><img src="media/letter/me.jpg" alt="Nikhil in a blue shirt and sunglasses" width="480" height="853" loading="lazy"><figcaption>Hey, it's me. Yes, I wrote all that.</figcaption></figure></div>
               <p class="kv-lend">Not bigger homes. Better-understood ones.</p>
               <p><span id="kvDoors">We’re opening the doors at 11:11 on 11/11.</span> I hope you’ll come in.</p>
             </div>
@@ -698,7 +744,12 @@ th{font-size:9.5px;letter-spacing:.08em}}
               <span class="kv-lwho"><b>Ar. Nikhil Rodrigo</b>Pocket Home, Chennai</span>
             </div>
           </article>
+        </div>
+        <div class="kv-rail kv-rail-r">
+          <figure class="kv-print"><span class="kv-printtape"></span><img src="media/letter/discussions.jpg" alt="Nikhil going through drawings with a group at a site" width="675" height="900" loading="lazy"><figcaption>One drawing. Nine opinions.</figcaption></figure>
           <div class="kv-lsticky" aria-hidden="true"><span class="kv-tack"></span>Every square foot deserves good design.</div>
+          <figure class="kv-print"><span class="kv-printtape"></span><img src="media/letter/site-office.jpg" alt="Drawings spread out on a scooter at a site" width="405" height="900" loading="lazy"><figcaption>Site office. Two wheels. Zero rent.</figcaption></figure>
+          <figure class="kv-print"><span class="kv-printtape"></span><img src="media/letter/families.jpg" alt="A family with Nikhil in a finished room" width="480" height="640" loading="lazy"><figcaption>Happy family. Chairs not in the package.</figcaption></figure>
         </div>
       </div>
     </section>
@@ -775,6 +826,12 @@ const WA_NUMBER='';
 const GOOGLE_CLIENT_ID='';
 const $=s=>document.querySelector(s);
 let tT;function toast(m,bad){const t=$('#toast');t.textContent=m;t.className='on'+(bad?' bad':'');clearTimeout(tT);tT=setTimeout(()=>t.className='',2800)}
+(function(){
+  const v=$('#kvVideo'),b=$('#kvVidPlay');if(!v||!b)return;
+  b.addEventListener('click',()=>{v.controls=true;const p=v.play();if(p&&p.catch)p.catch(()=>{})});
+  v.addEventListener('play',()=>{b.hidden=true});
+  v.addEventListener('ended',()=>{v.controls=false;b.hidden=false;v.load()});
+})();
 function kvStrings(){
   const b=$('#kvBoard'),svg=$('#kvStr');if(!b||!svg)return;
   const a=[...b.querySelectorAll('[data-anchor]')];
@@ -896,7 +953,7 @@ function waitShow(email){
   const done=!!email;$('#wAsk').hidden=done;$('#wDone').hidden=!done;$('#wForm').hidden=done;
   if(done)$('#wDoneEm').textContent=email;
 }
-function openWait(){$('#suErr').textContent='';waitShow(kept());waitPaint();$('#signup').classList.add('on');googleInit()}
+function openWait(){const v=$('#kvVideo');if(v&&!v.paused)v.pause();$('#suErr').textContent='';waitShow(kept());waitPaint();$('#signup').classList.add('on');googleInit()}
 function closeWait(){$('#signup').classList.remove('on')}
 function closeIntro(){openWait()}
 let saving=false;
