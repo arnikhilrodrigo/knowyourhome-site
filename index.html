@@ -31,6 +31,7 @@ button{font:inherit;color:inherit}
 em{font-style:italic}
 .err{color:var(--red-deep);font-size:13px;font-weight:600;min-height:18px;margin-bottom:8px}
 .fine{font-size:12px;color:var(--grey);text-align:center;margin-top:14px}
+.fine a{color:inherit;font-weight:700}
 label.f{display:block;font-size:12px;font-weight:700;color:var(--grey);margin-bottom:5px;letter-spacing:.01em}
 input,select{width:100%;font:inherit;font-weight:600;color:var(--ink);background:var(--blush);border:1.5px solid var(--rule);border-radius:12px;padding:11px 12px;min-height:46px;transition:border-color .15s,background .15s}
 input:focus,select:focus{outline:none;border-color:var(--red);background:#fff;box-shadow:0 0 0 4px rgba(210,53,42,.12)}
@@ -784,8 +785,8 @@ button.st:hover{transform:scale(1.15)}
         
         <nav class="kv-flinks" aria-label="Footer">
           <a href="https://pockethome.nichekala.in" target="_blank" rel="noopener">Pocket Home</a>
-          <button type="button" data-act="soon">Privacy</button>
-          <button type="button" data-act="soon">Contact</button>
+          <a href="privacy.html" target="_blank" rel="noopener">Privacy</a>
+          <a href="privacy.html#contact" target="_blank" rel="noopener">Contact</a>
           <a id="kvFootWa" href="#" target="_blank" rel="noopener">WhatsApp</a>
         </nav>
       </footer>
@@ -816,7 +817,7 @@ button.st:hover{transform:scale(1.15)}
       <input id="suEmail" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com">
       <div class="err" id="suErr"></div>
       <button class="su-go" id="wGo" type="button" data-act="w-email">Notify me <span class="ar">→</span></button>
-      <p class="fine">We'll email you when we launch. Your details stay with the Pocket Home team.</p>
+      <p class="fine">We'll email you when we launch. Your details stay with the Pocket Home team. <a href="privacy.html" target="_blank" rel="noopener">Privacy</a>.</p>
     </div>
     <button class="su-back" type="button" data-act="w-close">← Back to the page</button>
   </div>
